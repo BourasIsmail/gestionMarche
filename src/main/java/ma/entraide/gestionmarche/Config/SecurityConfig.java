@@ -1,7 +1,8 @@
-package ma.entraide.formationcentres.Config;
+package ma.entraide.gestionmarche.Config;
 
-import ma.entraide.formationcentres.Filter.JwtFilter;
-import ma.entraide.formationcentres.Service.UserInfoService;
+
+import ma.entraide.gestionmarche.Filter.JwtFilter;
+import ma.entraide.gestionmarche.Service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -55,7 +56,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000","http://172.16.20.74","https://cfa.entraide.ma")); // Add your frontend URL
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000","http://172.16.10.58")); // Add your frontend URL
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With"));
         configuration.setAllowCredentials(true);

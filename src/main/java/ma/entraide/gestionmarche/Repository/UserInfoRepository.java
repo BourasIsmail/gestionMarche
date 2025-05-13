@@ -1,7 +1,7 @@
-package ma.entraide.formationcentres.Repository;
+package ma.entraide.gestionmarche.Repository;
 
 
-import ma.entraide.formationcentres.Entity.UserInfo;
+import ma.entraide.gestionmarche.Entity.UserInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;

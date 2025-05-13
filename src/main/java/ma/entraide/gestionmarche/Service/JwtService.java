@@ -1,4 +1,4 @@
-package ma.entraide.formationcentres.Service;
+package ma.entraide.gestionmarche.Service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

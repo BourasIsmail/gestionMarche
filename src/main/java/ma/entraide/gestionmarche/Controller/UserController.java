@@ -1,11 +1,11 @@
-package ma.entraide.formationcentres.Controller;
+package ma.entraide.gestionmarche.Controller;
 
 
-import ma.entraide.formationcentres.Entity.AuthRequest;
-import ma.entraide.formationcentres.Entity.RequestBodyObject;
-import ma.entraide.formationcentres.Entity.UserInfo;
-import ma.entraide.formationcentres.Service.JwtService;
-import ma.entraide.formationcentres.Service.UserInfoService;
+import ma.entraide.gestionmarche.Entity.AuthRequest;
+import ma.entraide.gestionmarche.Entity.RequestBodyObject;
+import ma.entraide.gestionmarche.Entity.UserInfo;
+import ma.entraide.gestionmarche.Service.JwtService;
+import ma.entraide.gestionmarche.Service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

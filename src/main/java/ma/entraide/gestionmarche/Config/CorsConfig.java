@@ -1,4 +1,4 @@
-package ma.entraide.formationcentres.Config;
+package ma.entraide.gestionmarche.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,7 +1,7 @@
-package ma.entraide.formationcentres.Service;
+package ma.entraide.gestionmarche.Service;
 
 
-import ma.entraide.formationcentres.Entity.UserInfo;
+import ma.entraide.gestionmarche.Entity.UserInfo;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

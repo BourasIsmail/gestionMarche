@@ -1,11 +1,8 @@
-package ma.entraide.formationcentres.Service;
+package ma.entraide.gestionmarche.Service;
 
 
-import jakarta.validation.constraints.Null;
-import ma.entraide.formationcentres.Entity.Province;
-import ma.entraide.formationcentres.Entity.UserInfo;
-import ma.entraide.formationcentres.Repository.ProvinceRepo;
-import ma.entraide.formationcentres.Repository.UserInfoRepository;
+import ma.entraide.gestionmarche.Entity.UserInfo;
+import ma.entraide.gestionmarche.Repository.UserInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,13 +18,11 @@ import java.util.Optional;
 public class UserInfoService implements UserDetailsService {
     @Autowired
     private UserInfoRepository userInfoRepository;
-    @Autowired
-    private ProvinceRepo provinceRepo;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private ProvinceService provinceService;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<UserInfo> userInfo = userInfoRepository.findByEmail(username);
@@ -52,13 +47,6 @@ public class UserInfoService implements UserDetailsService {
         }
         else{
         userInfo.setPassword(passwordEncoder.encode(userInfo.getPassword()));
-        if(userInfo.getProvince() != null){
-            Optional<Province> provinceOptional = provinceRepo.findById(userInfo.getProvince().getId());
-            if(provinceOptional.isPresent()){
-                Province province = provinceOptional.get();
-                userInfo.setProvince(province);
-            }
-        }
         userInfoRepository.save(userInfo);
         return "User added successfully ";
         }
@@ -105,7 +93,6 @@ public class UserInfoService implements UserDetailsService {
     }
 
     public String updateUser(Integer id,UserInfo updatedUserInfo){
-            Province province = provinceService.getProvinceById(updatedUserInfo.getProvince().getId());
             Optional<UserInfo> optionalUserInfo = userInfoRepository.findById(id);
             if (!optionalUserInfo.isPresent()) {
                 throw new ResourceNotFoundException("User not found");
@@ -120,7 +107,6 @@ public class UserInfoService implements UserDetailsService {
                 existingUser.setName(updatedUserInfo.getName());
                 existingUser.setEmail(updatedUserInfo.getEmail());
                 existingUser.setRoles(updatedUserInfo.getRoles());
-                existingUser.setProvince(province);
                 existingUser.setPassword(passwordEncoder.encode(updatedUserInfo.getPassword())); // Update password
 
                 // Save the updated user

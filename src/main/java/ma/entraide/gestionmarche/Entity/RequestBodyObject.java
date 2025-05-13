@@ -1,4 +1,4 @@
-package ma.entraide.formationcentres.Entity;
+package ma.entraide.gestionmarche.Entity;
 
 public class RequestBodyObject {
 
